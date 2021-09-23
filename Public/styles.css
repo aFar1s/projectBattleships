@@ -1,0 +1,153 @@
+body {
+  font-family: montserrat, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #f3f3f3
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 66vh
+}
+
+.landing-title {
+  font-family: 'Bangers', cursive;
+  font-size: 15rem
+}
+
+.btn {
+  background-color: hsl(30, 100%, 50%);
+  font-size: 3.5rem;
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+
+.landing-battleship-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 98%;
+  height: 55%;
+  opacity: 0.7;
+}
+
+.container {
+  display: flex;
+}
+
+/* .mainContainer {
+align-items: 
+} */
+
+.topText {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#oppoText {
+  margin-left: 300px;
+  color: red;
+}
+
+#playerText {
+  margin-left: 140px;
+  color: blue;
+}
+
+.scoreBoard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#playerScore {
+  margin-left: 160px;
+  margin-top: 10px;
+  font-size: x-large;
+}
+
+#oppoScore {
+  margin-left: 345px;
+  margin-top: 10px;
+  font-size: x-large;
+}
+
+#whose-turn {
+  font-size:xx-large;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: underline;
+  color: rgb(206, 24, 24)
+}
+
+#info-display {
+  font-size:xx-large;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: underline;
+  color: rgb(99, 99, 99)
+}
+
+
+.grid-user {
+  width: 215px;
+  height: 215px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: lightblue;
+  margin: 20px;
+  border: 0.5px solid black
+}
+
+.grid div {
+  width: 40px;
+  height: 40px;
+
+}
+
+.grid-computer {
+  width: 215px;
+  height: 215px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: lightcoral;
+  margin: 20px;
+  border: 0.5px solid black
+}
+
+.ship div {
+  width: 40px;
+  height: 40px;
+}
+
+/* div {
+  border: 0.5px solid black; 
+} */
+
+#Ship1, #Ship2, #Ship3 {
+  background-color: darkolivegreen;
+}
+
+#Ship4, #Ship5, #Ship6 {
+  background-color: darkolivegreen; 
+}
+
+/* .hit {
+  background-color:maroon  
+}
+
+.miss {
+  background-color: light grey
+} */
+
+.emptyCpuCell {
+  background-color: lightcoral;
+  border: 0.5px solid black;
+  margin: 0px;
+}
+
+.emptyPlayerCell {
+  border: 0.5px solid black;
+}
