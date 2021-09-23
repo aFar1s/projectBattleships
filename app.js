@@ -114,6 +114,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     createCell1.setAttribute("id", "Ship1");
     grabCell1.appendChild(createCell1);
+    console.log(`${placeHolder1}`)
   }
 
   // Select random number from 0-24
@@ -130,7 +131,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function shipPlayerImg2(placeHolder2) {
     let grabCell2 = document.getElementById(`${placeHolder2.id}`);
     let createCell2 = document.createElement("div");
-    
+
     createCell2.setAttribute("id", "Ship2");
     grabCell2.appendChild(createCell2);
   }
@@ -138,20 +139,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
   let element2 = userArray[Math.floor(Math.random() * userArray.length)];
 
   function createPlayerShip2() {
+    console.log(element2.id);
+    while (element1.id === element2.id) {
+      element2 = userArray[Math.floor(Math.random() * userArray.length)];
+    }
     shipPlayerImg2(element2);
   }
-  while (element1.id === element2.id) {
-    element2 = userArray[Math.floor(Math.random() * userArray.length)];
-  }
-  console.log(element2.id)
-  console.log("ship2 ok")
+  console.log(element1.id === element2.id);
+  console.log("ship2 ok");
   // ============================================================================================
 
   // Repeat of above
   function shipPlayerImg3(placeHolder3) {
     let grabCell3 = document.getElementById(`${placeHolder3.id}`);
     let createCell3 = document.createElement("div");
-    
+
     createCell3.setAttribute("id", "Ship3");
     grabCell3.appendChild(createCell3);
   }
@@ -159,13 +161,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   let element3 = userArray[Math.floor(Math.random() * userArray.length)];
 
   function createPlayerShip3() {
-    shipPlayerImg3(element3);
     while (element3.id === element1.id || element3.id === element2.id) {
       element3 = userArray[Math.floor(Math.random() * userArray.length)];
     }
+    shipPlayerImg3(element3);
   }
-
   console.log(element3.id);
+  console.log(element3.id === element1.id || element3.id === element2.id);
   console.log("PLAYER ships generated");
 
   //* ============================================================================================
@@ -296,7 +298,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   document.getElementById("grid0").addEventListener("click", cpuTurn);
 
-  console.log(currentPlayer === "player");
   // function printMissOrHit() {
   //   turnDisplay.innerHTML = "YOU MIISED!";
   // }

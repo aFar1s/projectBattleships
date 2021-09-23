@@ -2,7 +2,7 @@ body {
   font-family: montserrat, sans-serif;
   box-sizing: border-box;
   margin: 0;
-  background-color: #f3f3f3
+  background-color: #f3f3f3;
 }
 
 .landing-container {
@@ -10,12 +10,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 66vh
+  height: 66vh;
 }
 
 .landing-title {
-  font-family: 'Bangers', cursive;
-  font-size: 15rem
+  font-family: "Bangers", cursive;
+  font-size: 15rem;
 }
 
 .btn {
@@ -23,6 +23,7 @@ body {
   font-size: 3.5rem;
   padding: 0.5em;
   border-radius: 0.3em;
+  z-index: 1;
 }
 
 .landing-battleship-image {
@@ -75,21 +76,20 @@ align-items:
 }
 
 #whose-turn {
-  font-size:xx-large;
+  font-size: xx-large;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-decoration: underline;
-  color: rgb(206, 24, 24)
+  color: rgb(206, 24, 24);
 }
 
 #info-display {
-  font-size:xx-large;
+  font-size: xx-large;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-decoration: underline;
-  color: rgb(99, 99, 99)
+  color: rgb(99, 99, 99);
 }
-
 
 .grid-user {
   width: 215px;
@@ -98,13 +98,12 @@ align-items:
   flex-wrap: wrap;
   background-color: lightblue;
   margin: 20px;
-  border: 0.5px solid black
+  border: 0.5px solid black;
 }
 
 .grid div {
   width: 40px;
   height: 40px;
-
 }
 
 .grid-computer {
@@ -114,7 +113,7 @@ align-items:
   flex-wrap: wrap;
   background-color: lightcoral;
   margin: 20px;
-  border: 0.5px solid black
+  border: 0.5px solid black;
 }
 
 .ship div {
@@ -126,12 +125,18 @@ align-items:
   border: 0.5px solid black; 
 } */
 
-#Ship1, #Ship2, #Ship3 {
+#Ship1,
+#Ship2,
+#Ship3 {
   background-color: darkolivegreen;
+  opacity: 0;
 }
 
-#Ship4, #Ship5, #Ship6 {
-  background-color: darkolivegreen; 
+#Ship4,
+#Ship5,
+#Ship6 {
+  background-color: darkolivegreen;
+  opacity: 0;
 }
 
 /* .hit {
