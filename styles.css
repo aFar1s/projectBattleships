@@ -49,6 +49,9 @@ body {
   display: flex;
 }
 
+.topContainer {
+  margin-right: 100px;
+}
 /* .mainContainer {
 align-items: 
 } */
@@ -59,12 +62,12 @@ align-items:
 }
 
 #oppoText {
-  margin-left: 300px;
+  margin-left: 195px;
   color: red;
 }
 
 #playerText {
-  margin-left: 140px;
+  margin-left: 115px;
   color: blue;
 }
 
@@ -74,13 +77,13 @@ align-items:
 }
 
 #playerScore {
-  margin-left: 160px;
+  margin-left: 128px;
   margin-top: 10px;
   font-size: x-large;
 }
 
 #oppoScore {
-  margin-left: 345px;
+  margin-left: 240px;
   margin-top: 10px;
   font-size: x-large;
 }
