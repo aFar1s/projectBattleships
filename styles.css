@@ -33,6 +33,7 @@ body {
   width: 98%;
   height: 55%;
   opacity: 0.7;
+  z-index: -5;
 }
 
 .container {
@@ -99,6 +100,7 @@ align-items:
   background-color: lightblue;
   margin: 20px;
   border: 0.5px solid black;
+  box-shadow: 0 0 2px 3px black;
 }
 
 .grid div {
@@ -114,6 +116,7 @@ align-items:
   background-color: lightcoral;
   margin: 20px;
   border: 0.5px solid black;
+  box-shadow: 0 0 2px 3px black;
 }
 
 .ship div {
@@ -149,10 +152,10 @@ align-items:
 
 .emptyCpuCell {
   background-color: lightcoral;
-  border: 0.5px solid black;
+  border: 1.5px solid black;
   margin: 0px;
 }
 
 .emptyPlayerCell {
-  border: 0.5px solid black;
+  border: 1.5px solid black;
 }
