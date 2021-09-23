@@ -4,6 +4,7 @@ body {
   margin: 0;
   background-color: #f3f3f3;
 }
+/* index */
 
 .landing-container {
   display: flex;
@@ -36,8 +37,17 @@ body {
   z-index: -5;
 }
 
+/* main */
+
+.mainContainer {
+  margin-left: 400px;
+  zoom: 1.5;
+  margin-top: 300px
+}
+
 .container {
   display: flex;
+  
 }
 
 /* .mainContainer {
@@ -159,3 +169,11 @@ align-items:
 .emptyPlayerCell {
   border: 1.5px solid black;
 }
+
+#start {
+  width: 450px;
+  background-color: hsl(30, 100%, 50%);
+  font-size: xx-large;
+  margin-left: 20px; 
+}
+
