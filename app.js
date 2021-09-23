@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       square.push(cpuCell);
       cpuCell.addEventListener("click", changeCpuColorOnClick);
       // cpuCell.addEventListener("click", printMissOrHit);
-      console.log(cpuCell);
+      // console.log(cpuCell);
     }
   }
   // Add change color on click to created element
@@ -115,42 +115,57 @@ window.addEventListener("DOMContentLoaded", (event) => {
     createCell1.setAttribute("id", "Ship1");
     grabCell1.appendChild(createCell1);
   }
+
   // Select random number from 0-24
-  function createPlayerShip1(arr) {
-    const element1 = arr[Math.floor(Math.random() * arr.length)];
+  const element1 = userArray[Math.floor(Math.random() * userArray.length)];
+
+  function createPlayerShip1() {
     shipPlayerImg1(element1);
   }
-
+  console.log(element1.id);
+  console.log("ship1 ok");
   // ============================================================================================
-  
+
   // Repeat of above
   function shipPlayerImg2(placeHolder2) {
     let grabCell2 = document.getElementById(`${placeHolder2.id}`);
     let createCell2 = document.createElement("div");
+    
     createCell2.setAttribute("id", "Ship2");
     grabCell2.appendChild(createCell2);
   }
-  
-  function createPlayerShip2(arr) {
-    const element2 = arr[Math.floor(Math.random() * arr.length)];
+
+  let element2 = userArray[Math.floor(Math.random() * userArray.length)];
+
+  function createPlayerShip2() {
     shipPlayerImg2(element2);
   }
-
+  while (element1.id === element2.id) {
+    element2 = userArray[Math.floor(Math.random() * userArray.length)];
+  }
+  console.log(element2.id)
+  console.log("ship2 ok")
   // ============================================================================================
 
   // Repeat of above
   function shipPlayerImg3(placeHolder3) {
     let grabCell3 = document.getElementById(`${placeHolder3.id}`);
     let createCell3 = document.createElement("div");
+    
     createCell3.setAttribute("id", "Ship3");
     grabCell3.appendChild(createCell3);
   }
 
-  function createPlayerShip3(arr) {
-    const element3 = arr[Math.floor(Math.random() * arr.length)];
+  let element3 = userArray[Math.floor(Math.random() * userArray.length)];
+
+  function createPlayerShip3() {
     shipPlayerImg3(element3);
+    while (element3.id === element1.id || element3.id === element2.id) {
+      element3 = userArray[Math.floor(Math.random() * userArray.length)];
+    }
   }
 
+  console.log(element3.id);
   console.log("PLAYER ships generated");
 
   //* ============================================================================================
@@ -166,8 +181,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     createCell1.setAttribute("id", "Ship4");
     grabCell1.appendChild(createCell1);
   }
-  
-  // Select random number from 0-24
+
+  // Select random number from 25-49
   function createCpuShip1(arr) {
     const element4 = arr[Math.floor(Math.random() * arr.length)];
     shipCpuImg1(element4);
@@ -201,7 +216,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     shipCpuImg3(element6);
   }
 
-  console.log("PLAYER ships generated");
+  console.log("CPU ships generated");
 
   //* ============================================================================================
   //* ============================================================================================
@@ -210,9 +225,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // START GAME
 
   startButton.addEventListener("click", () => {
-    createPlayerShip1(userArray);
-    createPlayerShip2(userArray);
-    createPlayerShip3(userArray);
+    createPlayerShip1();
+    createPlayerShip2();
+    createPlayerShip3();
     createCpuShip1(cpuArray);
     createCpuShip2(cpuArray);
     createCpuShip3(cpuArray);
@@ -224,12 +239,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
   //* ============================================================================================
 
   // Game Logic
-  
+
   // Logic for Player Turn
   function playerTurn(event) {
     if (currentPlayer === "player") {
-      turnDisplay.innerHTML =
-      `${playerText}`;
+      turnDisplay.innerHTML = `${playerText}`;
     }
     console.log(event.target.id);
     if (
@@ -251,12 +265,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
       turnDisplay.innerHTML = "CPU Turn!";
     }
   }
-  
+
   // Logic For CPU Turn
   function cpuTurn(event) {
     if (currentPlayer === "player") {
-      turnDisplay.innerHTML =
-      `${playerText}`;
+      turnDisplay.innerHTML = `${playerText}`;
     }
     console.log(event.target.id);
     if (
@@ -277,15 +290,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     } else {
       turnDisplay.innerHTML = "PLAYER Turn!";
     }
-
   }
-  
-  
+
   document.getElementById("grid1").addEventListener("click", playerTurn);
-  
+
   document.getElementById("grid0").addEventListener("click", cpuTurn);
-  
-console.log((currentPlayer === "player"))
+
+  console.log(currentPlayer === "player");
   // function printMissOrHit() {
   //   turnDisplay.innerHTML = "YOU MIISED!";
   // }
