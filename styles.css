@@ -42,12 +42,11 @@ body {
 .mainContainer {
   margin-left: 400px;
   zoom: 1.5;
-  margin-top: 300px
+  margin-top: 300px;
 }
 
 .container {
   display: flex;
-  
 }
 
 /* .mainContainer {
@@ -174,6 +173,5 @@ align-items:
   width: 450px;
   background-color: hsl(30, 100%, 50%);
   font-size: xx-large;
-  margin-left: 20px; 
+  margin-left: 20px;
 }
-
