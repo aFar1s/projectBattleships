@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Array Variables
   const userArray = [];
   const cpuArray = [];
-  
+  const shipArray = [];
 
   //? ============================================================================================
   // const userBoard = [
@@ -67,11 +67,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
       userCell.setAttribute("id", i);
       userGrid.appendChild(userCell);
       square.push(userCell);
-      userCell.addEventListener("click", changePlayerColorOnClick);
+      userCell.addEventListener("click", changePlayerColorOnClick, true);
     }
   }
   function changePlayerColorOnClick(event) {
     event.target.style.backgroundColor = "red";
+    event.target.style.zIndex = "(1)";
   }
 
   createUserBoard(userGrid, userArray, gridWidth);
@@ -88,11 +89,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
       cpuCell.setAttribute("id", i + totalGridSize);
       cpuGrid.appendChild(cpuCell);
       square.push(cpuCell);
-      cpuCell.addEventListener("click", changeCpuColorOnClick);
-      
+      cpuCell.addEventListener("click", changeCpuColorOnClick, true);
+      console.log(cpuCell);
     }
   }
-  
 
   createCpuBoard(cpuGrid, cpuArray, gridWidth);
 
@@ -110,16 +110,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let createCell1 = document.createElement("div");
 
     createCell1.setAttribute("id", "Ship1");
+    createCell1.setAttribute("class", "shipActual");
     grabCell1.appendChild(createCell1);
-  }
 
+    shipArray.push(createCell1);
+  }
   // Select random number from 0-24
   const element1 = userArray[Math.floor(Math.random() * userArray.length)];
-  
+
   function createPlayerShip1() {
     shipPlayerImg1(element1);
   }
-  console.log(`ship1 ok ` + `${element1.id}`); 
+  console.log(`ship1 ok ` + `${element1.id}`);
   // ============================================================================================
 
   // Repeat of above
@@ -128,11 +130,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let createCell2 = document.createElement("div");
 
     createCell2.setAttribute("id", "Ship2");
+    createCell2.setAttribute("class", "shipActual");
     grabCell2.appendChild(createCell2);
+
+    shipArray.push(createCell2);
   }
 
   let element2 = userArray[Math.floor(Math.random() * userArray.length)];
-  
+
   function createPlayerShip2() {
     while (element1.id === element2.id) {
       element2 = userArray[Math.floor(Math.random() * userArray.length)];
@@ -148,7 +153,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let createCell3 = document.createElement("div");
 
     createCell3.setAttribute("id", "Ship3");
+    createCell3.setAttribute("class", "shipActual");
     grabCell3.appendChild(createCell3);
+
+    shipArray.push(createCell3);
   }
 
   let element3 = userArray[Math.floor(Math.random() * userArray.length)];
@@ -173,12 +181,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let createCell1 = document.createElement("div");
 
     createCell1.setAttribute("id", "Ship4");
+    createCell1.setAttribute("class", "shipActual");
     grabCell1.appendChild(createCell1);
+
+    shipArray.push(createCell1);
   }
-  
+
   // Select random number from 25-49
   const element4 = cpuArray[Math.floor(Math.random() * cpuArray.length)];
-  
+
   function createCpuShip1() {
     shipCpuImg1(element4);
   }
@@ -188,10 +199,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function shipCpuImg2(placeHolder5) {
     let grabCell2 = document.getElementById(`${placeHolder5.id}`);
     let createCell2 = document.createElement("div");
+
     createCell2.setAttribute("id", "Ship5");
+    createCell2.setAttribute("class", "shipActual");
     grabCell2.appendChild(createCell2);
+
+    shipArray.push(createCell2);
   }
-  
+
   let element5 = cpuArray[Math.floor(Math.random() * cpuArray.length)];
 
   function createCpuShip2() {
@@ -206,10 +221,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function shipCpuImg3(placeHolder6) {
     let grabCell3 = document.getElementById(`${placeHolder6.id}`);
     let createCell3 = document.createElement("div");
+
     createCell3.setAttribute("id", "Ship6");
+    createCell3.setAttribute("class", "shipActual");
     grabCell3.appendChild(createCell3);
+
+    shipArray.push(createCell3);
   }
-  
+
   let element6 = cpuArray[Math.floor(Math.random() * cpuArray.length)];
 
   function createCpuShip3() {
@@ -236,6 +255,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
     createCpuShip2();
     createCpuShip3();
     turnDisplay.innerHTML = `${playerText}`;
+    console.log(shipArray);
+
+    function changeShipColorOnClick(event) {
+      event.target.style.backgroundColor = "green";
+      event.target.style.zIndex = "5";
+    }
+
+    document
+      .getElementById("Ship1")
+      .addEventListener("click", changeShipColorOnClick, true);
+    document
+      .getElementById("Ship2")
+      .addEventListener("click", changeShipColorOnClick, true);
+    document
+      .getElementById("Ship3")
+      .addEventListener("click", changeShipColorOnClick, true);
+    document
+      .getElementById("Ship4")
+      .addEventListener("click", changeShipColorOnClick, true);
+    document
+      .getElementById("Ship5")
+      .addEventListener("click", changeShipColorOnClick, true);
+    document
+      .getElementById("Ship6")
+      .addEventListener("click", changeShipColorOnClick, true);
   });
 
   //* ============================================================================================
@@ -245,6 +289,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Game Logic
 
   // Logic for Player Turn
+  document.getElementById("grid1").addEventListener("click", playerTurn);
+
+  document.getElementById("grid0").addEventListener("click", cpuTurn);
+
   function playerTurn(event) {
     if (currentPlayer === "player") {
       turnDisplay.innerHTML = `${playerText}`;
@@ -296,10 +344,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  document.getElementById("grid1").addEventListener("click", playerTurn);
-
-  document.getElementById("grid0").addEventListener("click", cpuTurn);
-
   //? Color Changes
 
   // Add change color on click to created element
@@ -307,4 +351,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
     event.target.style.backgroundColor = "red";
   }
 
+  //  const shipArray = ['div#Ship1', 'div#Ship2', 'div#Ship3', 'div#Ship4', 'div#Ship5', 'div#Ship6']
 });

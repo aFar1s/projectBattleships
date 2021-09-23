@@ -40,7 +40,7 @@ body {
 /* main */
 
 .mainContainer {
-  margin-left: 400px;
+  margin-left: 380px;
   zoom: 1.5;
   margin-top: 300px;
 }
@@ -140,14 +140,18 @@ align-items:
 #Ship1,
 #Ship2,
 #Ship3 {
-  background-color: darkolivegreen;
+  background-color: rgb(147, 148, 142);
   /* opacity: 1; */
 }
 
 #Ship4,
 #Ship5,
 #Ship6 {
-  background-color: darkolivegreen;
+  background-color: rgb(147, 148, 142);
+  /* width: 70%;
+  height: 70%;
+  border-radius: 0.5cm; */
+  
   /* opacity: 1; */
 }
 
