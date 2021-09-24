@@ -109,7 +109,7 @@ align-items:
   height: 215px;
   display: flex;
   flex-wrap: wrap;
-  background-color: lightblue;
+  background-color: hsl(200, 100%, 50%);
   margin: 20px;
   border: 0.5px solid black;
   box-shadow: 0 0 2px 3px black;
@@ -125,7 +125,7 @@ align-items:
   height: 215px;
   display: flex;
   flex-wrap: wrap;
-  background-color: lightcoral;
+  background-color: hsl(200, 100%, 50%);
   margin: 20px;
   border: 0.5px solid black;
   box-shadow: 0 0 2px 3px black;
@@ -145,15 +145,19 @@ align-items:
 #Ship3 {
   background-color: rgb(147, 148, 142);
   opacity: 0;
+  width: 95%;
+  height: 99%;
+  border-radius: 0.7em;
+ 
 }
 
 #Ship4,
 #Ship5,
 #Ship6 {
   background-color: rgb(147, 148, 142);
-  /* width: 70%;
-  height: 70%;
-  border-radius: 0.5cm; */
+  width: 95%;
+  height: 99%;
+  border-radius: 0.7em;
   
   opacity: 0;
 }
@@ -167,13 +171,13 @@ align-items:
 } */
 
 .emptyCpuCell {
-  background-color: lightcoral;
-  border: 1.5px solid black;
+  background-color: hsl(200, 100%, 50%);
+  border: 1.5px solid hsla(0, 0%, 100%, 0.276);
   margin: 0px;
 }
 
 .emptyPlayerCell {
-  border: 1.5px solid black;
+  border: 1.5px solid hsla(0, 0%, 100%, 0.276);
 }
 
 #start {
