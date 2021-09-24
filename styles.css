@@ -41,8 +41,8 @@ body {
 
 .mainContainer {
   margin-left: 590px;
-    zoom: 1.5;
-    margin-top: 250px;
+  zoom: 1.5;
+  margin-top: 250px;
 }
 
 .container {
@@ -62,12 +62,12 @@ align-items:
 }
 
 #oppoText {
-  margin-left: 195px;
+  margin-left: 190px;
   color: red;
 }
 
 #playerText {
-  margin-left: 115px;
+  margin-left: 105px;
   color: blue;
 }
 
@@ -148,7 +148,7 @@ align-items:
   width: 95%;
   height: 99%;
   border-radius: 0.7em;
- 
+  margin: 0;
 }
 
 #Ship4,
@@ -158,7 +158,8 @@ align-items:
   width: 95%;
   height: 99%;
   border-radius: 0.7em;
-  
+  margin: 0;
+
   opacity: 0;
 }
 

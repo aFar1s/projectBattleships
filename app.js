@@ -7,8 +7,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const shipCount = 3;
   let playerShip = 3;
   let cpuShip = 3;
-  let playerScore = 0;
-  let cpuScore = 0;
+  let player1Score = 0;
+  let player2Score = 0;
 
   // Array Variables
   const userArray = [];
@@ -49,9 +49,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   //Game Variables
   let isGameOver = false;
-  let currentPlayer = "player";
-  const playerText = "PLAYER Turn. Select A Square On Your Opponents Board!";
-  const cpuText = "CPU Turn";
+  let currentPlayer = "player1";
+  const player1Text = "PLAYER 1 Turn. Select A Square On Player 2 Board!";
+  const player2Text = "PLAYER 2 Turn. Select A Square On Player 1 Board!";
 
   //* ============================================================================================
   //* ============================================================================================
@@ -105,6 +105,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Selects random starting square for ships and render ships on grid
 
   // Takes the random number from below, creates and appends a div to a div with that number as and id
+  // GENERATE SHIP 1
   function shipPlayerImg1(placeHolder1) {
     const grabCell1 = document.getElementById(`${placeHolder1.id}`);
     let createCell1 = document.createElement("div");
@@ -124,7 +125,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   console.log(`ship1 ok ` + `${element1.id}`);
   // ============================================================================================
 
-  // Repeat of above
+  // GENERATE SHIP 2
   function shipPlayerImg2(placeHolder2) {
     let grabCell2 = document.getElementById(`${placeHolder2.id}`);
     let createCell2 = document.createElement("div");
@@ -147,7 +148,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   console.log(`ship2 ok ` + `${element2.id}`);
   // ============================================================================================
 
-  // Repeat of above
+  // GENERATE SHIP 3
   function shipPlayerImg3(placeHolder3) {
     let grabCell3 = document.getElementById(`${placeHolder3.id}`);
     let createCell3 = document.createElement("div");
@@ -174,8 +175,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   //* ============================================================================================
   //* ============================================================================================
 
-  // Takes the random number from below, creates and appends a div to the parent div with that number as an id to make cpu ships
-
+  // GENERATE SHIP 4
   function shipCpuImg1(placeHolder4) {
     const grabCell1 = document.getElementById(`${placeHolder4.id}`);
     let createCell1 = document.createElement("div");
@@ -196,6 +196,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   console.log(`ship4 ok ` + `${element4.id}`);
   // ============================================================================================
 
+  // GENERATE SHIP 5
   function shipCpuImg2(placeHolder5) {
     let grabCell2 = document.getElementById(`${placeHolder5.id}`);
     let createCell2 = document.createElement("div");
@@ -218,6 +219,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   console.log(`ship5 ok ` + `${element5.id}`);
   // ============================================================================================
 
+  // GENERATE SHIP 6
   function shipCpuImg3(placeHolder6) {
     let grabCell3 = document.getElementById(`${placeHolder6.id}`);
     let createCell3 = document.createElement("div");
@@ -254,13 +256,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     createCpuShip1();
     createCpuShip2();
     createCpuShip3();
-    turnDisplay.innerHTML = `${playerText}`;
+    turnDisplay.innerHTML = `${player1Text}`;
     console.log(shipArray);
 
     function changeShipColorOnClick(event) {
       event.target.style.backgroundColor = "green";
       event.target.style.zIndex = "5";
-      event.target.style.opacity = "1"
+      event.target.style.opacity = "1";
     }
 
     document
@@ -289,14 +291,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   // Game Logic
 
-  // Logic for Player Turn
+  // Logic for Player 1 Turn
   document.getElementById("grid1").addEventListener("click", playerTurn);
 
   document.getElementById("grid0").addEventListener("click", cpuTurn);
 
   function playerTurn(event) {
-    if (currentPlayer === "player") {
-      turnDisplay.innerHTML = `${playerText}`;
+    if (currentPlayer === "player1") {
+      turnDisplay.innerHTML = `${player1Text}`;
     }
     console.log(event.target.id);
     if (
@@ -304,44 +306,46 @@ window.addEventListener("DOMContentLoaded", (event) => {
       event.target.id === "Ship5" ||
       event.target.id === "Ship6"
     ) {
-      infoDisplay.innerHTML = "You sank a ship!";
-      playerScore++;
-      playerScoreText.innerHTML = `${playerScore}`;
-    } else infoDisplay.innerHTML = "YOU MISSED!";
-    if (playerScore === 3) {
+      infoDisplay.innerHTML = "PLAYER 2 ship was destroyed!";
+      player1Score++;
+      playerScoreText.innerHTML = `${player1Score}`;
+    } else infoDisplay.innerHTML = "PLAYER 1 MISSED!";
+    if (player1Score === 3) {
       isGameOver = true;
       if (isGameOver) {
-        turnDisplay.innerHTML = "YOU WON!";
+        turnDisplay.innerHTML = "PLAYER 1 WON!";
       }
       return;
     } else {
-      turnDisplay.innerHTML = "CPU Turn!";
+      turnDisplay.innerHTML = "Player 2 Turn!";
+      currentPlayer = "player2";
     }
   }
 
-  // Logic For CPU Turn
+  // Logic For Player 2 Turn
   function cpuTurn(event) {
-    if (currentPlayer === "player") {
-      turnDisplay.innerHTML = `${playerText}`;
-    }
+    if (currentPlayer === "player2") {
+      turnDisplay.innerHTML = `${player2Text}`;
+    };
     console.log(event.target.id);
     if (
       event.target.id === "Ship1" ||
       event.target.id === "Ship2" ||
       event.target.id === "Ship3"
     ) {
-      infoDisplay.innerHTML = "Your ship was destroyed!";
-      cpuScore++;
-      cpuScoreText.innerHTML = `${cpuScore}`;
-    } else infoDisplay.innerHTML = "CPU MISSED!";
-    if (cpuScore === 3) {
+      infoDisplay.innerHTML = "PLAYER 1 ship was destroyed!";
+      player2Score++;
+      cpuScoreText.innerHTML = `${player2Score}`;
+    } else infoDisplay.innerHTML = "Player 2 MISSED!";
+    if (player2Score === 3) {
       isGameOver = true;
       if (isGameOver) {
-        turnDisplay.innerHTML = "CPU WON!";
+        turnDisplay.innerHTML = "PLAYER 2 WON!";
       }
       return;
     } else {
-      turnDisplay.innerHTML = "PLAYER Turn!";
+      turnDisplay.innerHTML = "PLAYER 1 Turn!";
+      currentPlayer = "player1";
     }
   }
 
@@ -351,6 +355,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function changeCpuColorOnClick(event) {
     event.target.style.backgroundColor = "red";
   }
-
-  //  const shipArray = ['div#Ship1', 'div#Ship2', 'div#Ship3', 'div#Ship4', 'div#Ship5', 'div#Ship6']
+  //* ============================================================================================
+  //* ============================================================================================
+  //* ============================================================================================
 });
