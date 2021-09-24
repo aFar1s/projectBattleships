@@ -260,6 +260,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     function changeShipColorOnClick(event) {
       event.target.style.backgroundColor = "green";
       event.target.style.zIndex = "5";
+      event.target.style.opacity = "1"
     }
 
     document
